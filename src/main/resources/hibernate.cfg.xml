@@ -1,0 +1,29 @@
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/world</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">password</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Validate the database schema on startup -->
+        <property name="hbm2ddl.auto">validate</property>
+        
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        
+        <property name="show_sql">true</property>
+        
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
+
+
+        <!-- Names the annotated entity class -->
+        <mapping class="com.pepkor.db.entity.User"/>
+        <mapping class="com.pepkor.db.entity.WorkItem"/>
+        <mapping class="com.pepkor.db.entity.Project"/>
+        
+    </session-factory>
+</hibernate-configuration>
+

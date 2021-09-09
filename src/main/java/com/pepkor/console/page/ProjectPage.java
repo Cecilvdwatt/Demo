@@ -1,6 +1,7 @@
 package com.pepkor.console.page;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -96,7 +97,11 @@ public class ProjectPage extends AbstractPage {
 			else
 			{
 				sb.append("Filter:" + currentViewSate.name());
-				for(WorkItem item : items)
+				
+				List<WorkItem> sortedList = new ArrayList<WorkItem>(items);
+				java.util.Collections.sort(sortedList);
+				
+				for(WorkItem item : sortedList)
 				{
 					sb.append("\n\tID: ").append(item.getId())
 						.append(", Title:").append(item.getTitle())
@@ -174,10 +179,6 @@ public class ProjectPage extends AbstractPage {
 				}
 			}
 		}
-		
-		
-		
-		
 
 		sb.append("Back:                   B\n"
 				+ "Exit:                   E\n");
@@ -199,7 +200,7 @@ public class ProjectPage extends AbstractPage {
 		
 		if(input.isEmpty())
 		{
-			displayText = "ERROR: No input give";
+			displayText = "ERROR: No input given";
 			return this;
 		}
 			
@@ -301,8 +302,15 @@ public class ProjectPage extends AbstractPage {
 						}
 						else 
 						{
-							WorkItemService.progressStatus(toProgress);
-							displayText = "Work Item Status Progressed";
+							try {
+								WorkItemService.progressStatus(toProgress);
+								displayText = "Work Item Status Progressed";
+							} 
+							catch (Exception e) 
+							{
+								displayText = "Could not progress status of Work Item. " + ErrorUtil.getErrorMsg(e);
+							}
+							
 						}
 					}
 				}
@@ -361,8 +369,15 @@ public class ProjectPage extends AbstractPage {
 			}
 			case "B":
 			{
-				parent.refresh();
-				return parent;
+				try
+				{
+					parent.refresh();
+					return parent;
+				}
+				catch(Exception e)
+				{
+					displayText = "Could not go back. " + ErrorUtil.getErrorMsg(e);
+				}
 			}
 			case "E":
 			{

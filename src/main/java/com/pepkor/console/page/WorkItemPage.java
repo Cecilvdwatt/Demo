@@ -137,8 +137,15 @@ public class WorkItemPage  extends AbstractPage {
 			}
 			case "U":
 			{
-				WorkItemService.progressStatus(thisWorkItem);
-				displayText = "Status Updated";
+				try {
+					WorkItemService.progressStatus(thisWorkItem);
+					displayText = "Status Updated";
+				} 
+				catch (Exception e) 
+				{
+					displayText = "Could not Progress Status of Work Item. " + ErrorUtil.getErrorMsg(e);
+				}
+				
 				break;
 			}
 			case "UU":
@@ -171,8 +178,15 @@ public class WorkItemPage  extends AbstractPage {
 			}
 			case "B":
 			{
-				parent.refresh();
-				return parent;
+				try
+				{
+					parent.refresh();
+					return parent;
+				}
+				catch(Exception e)
+				{
+					displayText = "Could not go back. " + ErrorUtil.getErrorMsg(e);
+				}
 			}
 			case "E":
 			{

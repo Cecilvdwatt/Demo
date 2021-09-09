@@ -1,7 +1,5 @@
 package com.pepkor.service;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.hibernate.cfg.Configuration;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;

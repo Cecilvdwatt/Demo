@@ -14,11 +14,13 @@ public class UserDAO extends abstractDAO<User> {
 
 		try
 		{
+
 			User toReturn =super.get(User.class, id);
 			if(toReturn != null)
 			{
 				toReturn.getWorkItems().size(); // force lazy load
 			}
+
 			return toReturn;
 		}
 		catch(Throwable e)

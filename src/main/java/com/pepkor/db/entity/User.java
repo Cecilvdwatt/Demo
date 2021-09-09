@@ -8,6 +8,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,7 +21,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="User", uniqueConstraints={@UniqueConstraint(columnNames={"ID"})})
-public class User {
+public class User implements Comparable<User> {
 	
 	////////////
 	// FIELDS
@@ -43,7 +44,7 @@ public class User {
 	////////////
 	// RELATIONS
 		
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<WorkItem> workItems;
 	
 	
@@ -100,6 +101,11 @@ public class User {
 
 	public void setLastUpdate(java.util.Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+
+	@Override
+	public int compareTo(User o) {
+		return this.getId().compareTo(o.getId());
 	}
 	
 	

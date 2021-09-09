@@ -31,7 +31,7 @@ public class WorkItemService {
 		update(toUnassign);
 	}
 	
-	public static void assignUser(WorkItem toAssignTo, String user) throws SQLException
+	public static void assignUser(WorkItem toAssignTo, String user) throws Exception
 	{
 		User toFind = UserService.broadSearch(user);
 		
@@ -41,6 +41,14 @@ public class WorkItemService {
 		}
 		else 
 		{
+			// If we're going to assign a work item that is already in the doings status to a user
+			// we need to make sure that user doesn't already have 3 doing items assigned to him
+			if(	toAssignTo.getStatus().equals(StatusEnum.DOING.name()) &&
+				new WorkItemDAO().countByStatusForUser(toFind.getId(), StatusEnum.DOING.name()) == 3)
+			{
+				throw new Exception("Maximum number of tasks in doing status for associated user");
+			}
+			
 			toAssignTo.setUser(toFind);
 			update(toAssignTo);
 		}
@@ -78,18 +86,45 @@ public class WorkItemService {
 		}
 	}
 	
+	public static WorkItem add(String name, String description, User user, String project) throws Exception
+	{
+		Project toFind = ProjectService.broadSearch(project);
+		
+		if(toFind == null)
+		{
+			throw new Exception("Could not find the specified project!");
+		}
+		else
+		{
+			// All new Work Items have a todo status, so we don't need to check if the DOING
+			// limit has been hit here since it can't be
+			return new WorkItemDAO().add(new WorkItem(name, description, user, toFind));
+		}
+	}
+	
 	public static WorkItem add(String name, String description, Project project)
 	{
 		return new WorkItemDAO().add(name, description, project);
 	}
 	
-	public static void progressStatus(WorkItem toProg)
+	public static void progressStatus(WorkItem toProg) throws Exception
 	{
-		
 		StatusEnum currentStatus = StatusEnum.valueOf(toProg.getStatus());
 		
 		if(currentStatus == StatusEnum.TODO)
 		{
+			// A user can only have 3 tasks in a doing state so we need to check before progressing
+			// Work Item is eager to fetch but User is lazy to fetch so there shouldn't be a
+			// needless database hit here
+			
+			if(toProg.getUser() != null)
+			{
+				if(new WorkItemDAO().countByStatusForUser(toProg.getUser().getId(), StatusEnum.DOING.name()) == 3)
+				{
+					throw new Exception("Maximum number of tasks in doing status for associated user");
+				}
+			}
+			
 			toProg.setStatus(StatusEnum.DOING.name());
 		}
 		else if(currentStatus == StatusEnum.DOING)

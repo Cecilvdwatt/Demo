@@ -33,7 +33,7 @@ public class LandingPage extends AbstractPage {
 		int intInput;
 		try
 		{
-			intInput = Integer.parseInt(input);
+			intInput = Integer.parseInt(input.strip());
 		}
 		catch(Exception e)
 		{

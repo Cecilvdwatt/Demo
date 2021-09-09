@@ -155,8 +155,15 @@ public class ProjectListPage extends AbstractPage {
 			}
 			case "B":
 			{
-				parent.refresh();
-				return parent;
+				try
+				{
+					parent.refresh();
+					return parent;
+				}
+				catch(Exception e)
+				{
+					displayText = "Could not go back. " + ErrorUtil.getErrorMsg(e);
+				}
 			}
 			case "E":
 			{

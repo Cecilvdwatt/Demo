@@ -53,6 +53,31 @@ public class WorkItemDAO extends abstractDAO<WorkItem> {
 		}
 	}
 	
+	public long countByStatusForUser(long userId, String status)
+	{
+		try
+		{
+			setupSession();
+
+			Query query = session.createQuery("select count(*) from WorkItem where status=:status and FK_user=:userid");
+			query.setString("status", status);
+			query.setLong("userid", userId);
+			Long count = (Long)query.uniqueResult();
+
+			breakdownSession();
+			
+			return count;
+		}
+		catch(Throwable e)
+		{
+			errorSession();
+			throw e;
+		}
+	}
+	
+	
+	
+	
 	@Override
 	public WorkItem add(WorkItem toPersist) {
 		toPersist.setLastUpdate(new Date(System.currentTimeMillis()));

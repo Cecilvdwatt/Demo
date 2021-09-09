@@ -1,4 +1,4 @@
-package com.pepkor.test;
+package com.pepkor;
 
 import org.hibernate.*;
 import org.springframework.boot.CommandLineRunner;

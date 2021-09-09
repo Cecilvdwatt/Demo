@@ -53,7 +53,7 @@ public class UserListPage extends AbstractPage {
 		sb.append("Delete:                D {{user id}}\n");
 		sb.append("Update Name:           UN {{user id}} {{new name}}\n");
 		sb.append("Update Email:          UE {{user id}} {{new email}}\n");
-		sb.append("View User:             V {{user id}}");
+		sb.append("View User:             V {{user id}}\n");
 		
 		if(userCount == 10)
 		{
@@ -108,6 +108,7 @@ public class UserListPage extends AbstractPage {
 				{
 					displayText = "ERROR: Could not add User. " + ErrorUtil.getErrorMsg(e);
 				}
+				break;
 			}
 			case "D":
 			{
@@ -188,9 +189,10 @@ public class UserListPage extends AbstractPage {
 				long id = getCheckID(splited);
 				if(id != -1)
 				{
-					
-					
+					return new UserPage(this, id);
 				}
+				
+				break;
 			}
 			case "N":
 			{
@@ -207,8 +209,15 @@ public class UserListPage extends AbstractPage {
 			}
 			case "B":
 			{
-				parent.refresh();
-				return parent;
+				try
+				{
+					parent.refresh();
+					return parent;
+				}
+				catch(Exception e)
+				{
+					displayText = "Could not go back. " + ErrorUtil.getErrorMsg(e);
+				}
 			}
 			case "E":
 			{

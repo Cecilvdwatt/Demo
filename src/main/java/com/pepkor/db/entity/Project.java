@@ -29,7 +29,7 @@ import com.pepkor.db.StatusEnum;
 
 @Entity
 @Table(name="Project", uniqueConstraints={@UniqueConstraint(columnNames={"ID"})})
-public class Project {
+public class Project implements Comparable<Project> {
 	
 	//////////
 	// FIELDS
@@ -54,7 +54,7 @@ public class Project {
 	////////////
 	// RELATIONS
 	
-	@OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private Set<WorkItem> items; 
 	
 	public Project() {}
@@ -192,5 +192,10 @@ public class Project {
 		
 	}
 	
+	 @Override
+	 public int compareTo(Project o) {
+		 
+		 return this.getId().compareTo(o.getId());
+	 }
 	
 }

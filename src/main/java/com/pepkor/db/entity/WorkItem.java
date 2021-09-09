@@ -20,7 +20,7 @@ import com.pepkor.db.StatusEnum;
 
 @Entity
 @Table(name="WorkItem", uniqueConstraints={@UniqueConstraint(columnNames={"ID"})})
-public class WorkItem {
+public class WorkItem implements Comparable<WorkItem> {
 	
 	/////////
 	// FIELDS
@@ -141,6 +141,9 @@ public class WorkItem {
 	} 
 
 	
-	
+	@Override
+	public int compareTo(WorkItem o) {
+		return this.getId().compareTo(o.getId());
+	}
 	
 }

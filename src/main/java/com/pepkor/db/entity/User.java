@@ -28,7 +28,7 @@ public class User implements Comparable<User> {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID", nullable=false, unique=true, length=11)
+	@Column(name="id", nullable=false, unique=true, length=11)
 	private Long id;
 	
 	@Column(nullable=false)
@@ -44,7 +44,7 @@ public class User implements Comparable<User> {
 	////////////
 	// RELATIONS
 		
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<WorkItem> workItems;
 	
 	

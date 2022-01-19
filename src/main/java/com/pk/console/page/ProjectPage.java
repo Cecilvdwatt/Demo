@@ -1,19 +1,19 @@
-package com.pepkor.console.page;
+package com.pk.console.page;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import com.pepkor.db.entity.WorkItem;
-import com.pepkor.service.ProjectService;
-import com.pepkor.service.WorkItemService;
-import com.pepkor.util.ErrorUtil;
+import com.pk.db.entity.WorkItem;
+import com.pk.service.ProjectService;
+import com.pk.service.WorkItemService;
+import com.pk.util.ErrorUtil;
 
 public class ProjectPage extends AbstractPage {
 	
 
-	private com.pepkor.db.entity.Project thisProject;
+	private com.pk.db.entity.Project thisProject;
 
 	private ViewState currentViewSate = ViewState.ALL;
 

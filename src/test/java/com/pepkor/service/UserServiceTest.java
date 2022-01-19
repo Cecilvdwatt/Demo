@@ -6,10 +6,13 @@ import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.pepkor.db.DBConfig;
-import com.pepkor.db.entity.Project;
-import com.pepkor.db.entity.User;
-import com.pepkor.db.entity.WorkItem;
+import com.pk.db.DBConfig;
+import com.pk.db.entity.Project;
+import com.pk.db.entity.User;
+import com.pk.db.entity.WorkItem;
+import com.pk.service.ProjectService;
+import com.pk.service.UserService;
+import com.pk.service.WorkItemService;
 
 class UserServiceTest {
 

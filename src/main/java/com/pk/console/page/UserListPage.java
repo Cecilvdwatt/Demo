@@ -1,10 +1,10 @@
-package com.pepkor.console.page;
+package com.pk.console.page;
 
 import java.util.List;
 
-import com.pepkor.db.entity.User;
-import com.pepkor.service.UserService;
-import com.pepkor.util.ErrorUtil;
+import com.pk.db.entity.User;
+import com.pk.service.UserService;
+import com.pk.util.ErrorUtil;
 
 public class UserListPage extends AbstractPage {
 

@@ -1,4 +1,4 @@
-package com.pepkor.db.entity;
+package com.pk.db.entity;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import com.pepkor.db.StatusEnum;
+import com.pk.db.StatusEnum;
 
 @Entity
 @Table(name="Project", uniqueConstraints={@UniqueConstraint(columnNames={"ID"})})

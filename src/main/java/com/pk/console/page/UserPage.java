@@ -1,14 +1,14 @@
-package com.pepkor.console.page;
+package com.pk.console.page;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pepkor.db.entity.User;
-import com.pepkor.db.entity.WorkItem;
-import com.pepkor.service.UserService;
-import com.pepkor.service.WorkItemService;
-import com.pepkor.util.ErrorUtil;
+import com.pk.db.entity.User;
+import com.pk.db.entity.WorkItem;
+import com.pk.service.UserService;
+import com.pk.service.WorkItemService;
+import com.pk.util.ErrorUtil;
 
 public class UserPage  extends AbstractPage  {
 

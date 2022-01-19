@@ -1,4 +1,4 @@
-package com.pepkor.console.page;
+package com.pk.console.page;
 
 import java.util.ArrayList;
 import java.util.List;

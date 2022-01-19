@@ -1,10 +1,10 @@
-package com.pepkor.console.page;
+package com.pk.console.page;
 
 import java.util.List;
 
-import com.pepkor.db.entity.Project;
-import com.pepkor.service.ProjectService;
-import com.pepkor.util.ErrorUtil;
+import com.pk.db.entity.Project;
+import com.pk.service.ProjectService;
+import com.pk.util.ErrorUtil;
 
 public class ProjectListPage extends AbstractPage {
 

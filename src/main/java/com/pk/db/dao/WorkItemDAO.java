@@ -1,4 +1,4 @@
-package com.pepkor.db.dao;
+package com.pk.db.dao;
 
 import java.sql.Date;
 import java.util.List;
@@ -8,10 +8,10 @@ import javax.persistence.criteria.CriteriaQuery;
 
 import org.hibernate.query.Query;
 
-import com.pepkor.db.StatusEnum;
-import com.pepkor.db.entity.Project;
-import com.pepkor.db.entity.User;
-import com.pepkor.db.entity.WorkItem;
+import com.pk.db.StatusEnum;
+import com.pk.db.entity.Project;
+import com.pk.db.entity.User;
+import com.pk.db.entity.WorkItem;
 
 public class WorkItemDAO extends abstractDAO<WorkItem> {
 

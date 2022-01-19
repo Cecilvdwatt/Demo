@@ -1,4 +1,4 @@
-package com.pepkor.util;
+package com.pk.util;
 
 public class ErrorUtil {
 

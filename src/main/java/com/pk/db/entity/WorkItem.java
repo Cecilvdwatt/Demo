@@ -1,4 +1,4 @@
-package com.pepkor.db.entity;
+package com.pk.db.entity;
 
 import java.sql.Date;
 
@@ -16,7 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
-import com.pepkor.db.StatusEnum;
+import com.pk.db.StatusEnum;
 
 @Entity
 @Table(name="WorkItem", uniqueConstraints={@UniqueConstraint(columnNames={"ID"})})

@@ -1,10 +1,10 @@
-package com.pepkor.console.page;
+package com.pk.console.page;
 
 import java.util.List;
 
-import com.pepkor.db.entity.WorkItem;
-import com.pepkor.service.WorkItemService;
-import com.pepkor.util.ErrorUtil;
+import com.pk.db.entity.WorkItem;
+import com.pk.service.WorkItemService;
+import com.pk.util.ErrorUtil;
 
 public class WorkItemPage  extends AbstractPage {
 

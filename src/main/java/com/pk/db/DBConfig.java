@@ -1,4 +1,4 @@
-package com.pepkor.db;
+package com.pk.db;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;

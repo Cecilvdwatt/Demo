@@ -1,10 +1,10 @@
-package com.pepkor.service;
+package com.pk.service;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import com.pepkor.db.dao.UserDAO;
-import com.pepkor.db.entity.User;
+import com.pk.db.dao.UserDAO;
+import com.pk.db.entity.User;
 
 public class UserService {
 

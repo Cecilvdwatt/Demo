@@ -1,4 +1,4 @@
-package com.pepkor.console.page;
+package com.pk.console.page;
 
 public interface iConsolePage {
 	public String getText();

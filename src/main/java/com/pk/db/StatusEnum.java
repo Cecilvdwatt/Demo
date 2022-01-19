@@ -1,4 +1,4 @@
-package com.pepkor.db;
+package com.pk.db;
 
 public enum StatusEnum {
 	TODO,

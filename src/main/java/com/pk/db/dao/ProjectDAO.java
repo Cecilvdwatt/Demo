@@ -1,4 +1,4 @@
-package com.pepkor.db.dao;
+package com.pk.db.dao;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.hibernate.Query;
 
-import com.pepkor.db.entity.Project;
-import com.pepkor.db.entity.User;
+import com.pk.db.entity.Project;
+import com.pk.db.entity.User;
 
 public class ProjectDAO extends abstractDAO<Project> {
 

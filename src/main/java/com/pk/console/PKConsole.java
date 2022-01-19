@@ -1,11 +1,11 @@
-package com.pepkor.console;
+package com.pk.console;
 
 import java.util.Scanner;
 
-import com.pepkor.console.page.LandingPage;
-import com.pepkor.console.page.iConsolePage;
+import com.pk.console.page.LandingPage;
+import com.pk.console.page.iConsolePage;
 
-public class PepkorConsole {
+public class PKConsole {
 
 	private iConsolePage currentPage;
 	

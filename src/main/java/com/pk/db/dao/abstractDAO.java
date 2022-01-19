@@ -1,4 +1,4 @@
-package com.pepkor.db.dao;
+package com.pk.db.dao;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 
-import com.pepkor.db.DBConfig;
+import com.pk.db.DBConfig;
 
 public abstract class abstractDAO<T> {
 

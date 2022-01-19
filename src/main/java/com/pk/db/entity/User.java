@@ -1,4 +1,4 @@
-package com.pepkor.db.entity;
+package com.pk.db.entity;
 
 
 import java.sql.Date;

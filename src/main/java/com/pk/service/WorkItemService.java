@@ -1,13 +1,13 @@
-package com.pepkor.service;
+package com.pk.service;
 
 import java.sql.SQLException;
 
-import com.pepkor.db.StatusEnum;
-import com.pepkor.db.dao.UserDAO;
-import com.pepkor.db.dao.WorkItemDAO;
-import com.pepkor.db.entity.Project;
-import com.pepkor.db.entity.User;
-import com.pepkor.db.entity.WorkItem;
+import com.pk.db.StatusEnum;
+import com.pk.db.dao.UserDAO;
+import com.pk.db.dao.WorkItemDAO;
+import com.pk.db.entity.Project;
+import com.pk.db.entity.User;
+import com.pk.db.entity.WorkItem;
 
 public class WorkItemService {
 	

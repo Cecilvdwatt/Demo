@@ -1,4 +1,4 @@
-package com.pepkor.console.page;
+package com.pk.console.page;
 
 public class LandingPage extends AbstractPage {
 	
